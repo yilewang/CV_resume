@@ -4,9 +4,8 @@ Yile Wang's CV and resume, maintained in LaTeX.
 
 | File | Output |
 |---|---|
-| `cv.tex` | Academic CV: education, research, full publication list first |
-| `resume.tex` | Industry resume: experience and projects first, selected publications |
-| `sections/*.tex` | Shared content used by both |
+| `cv.tex` | All content, plus the section order for both variants; builds the academic CV |
+| `resume.tex` | Two-line wrapper that builds the industry resume from `cv.tex` |
 | `resume.cls` | Layout (Helvetica, derived from the original Word CV) |
 
 ## Build
@@ -22,7 +21,7 @@ The class uses macOS Helvetica when it is installed and falls back to TeX Gyre H
 
 ## Editing
 
-Edit content once in `sections/`; change section order in `cv.tex` or `resume.tex`.
+Edit all content in `cv.tex`: each section is defined once as a command (`\EducationSection`, `\ExperienceSection`, …), and the `\ifresume … \else … \fi` block at the end sets the section order for the resume and the CV.
 Wrap variant-specific material in `\cvonly{...}` or `\resumeonly{...}`.
 For example, publications wrapped in `\cvonly` appear only in the full CV.
 
