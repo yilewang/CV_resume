@@ -44,6 +44,7 @@
 \emergencystretch=2em
 \ULdepth=1.6pt
 \raggedbottom
+\widowpenalty=10000 \clubpenalty=10000   % never split a bullet's single line across pages
 
 %% ------------------------------------------------------------- variants
 \newcommand{\cvonly}[1]{\ifresume\else#1\fi}
