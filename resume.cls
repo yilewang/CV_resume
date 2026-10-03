@@ -5,7 +5,7 @@
 %% Class options:
 %%   cv       academic CV (default)
 %%   resume   industry resume
-%% Content shared by both lives in sections/*.tex; use \cvonly{...} and
+%% Content shared by both lives in content.tex; use \cvonly{...} and
 %% \resumeonly{...} there for variant-specific material.
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{resume}[2026/09/30 Helvetica CV and resume class]

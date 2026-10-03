@@ -1,0 +1,136 @@
+%% Shared content for the academic CV and industry resume.
+%% Edit section text here; both documents load these definitions.
+%% Reorder sections in cv.tex or resume.tex, then rebuild with latexmk.
+%% Use \cvonly{...} or \resumeonly{...} for variant-specific content.
+%% Compile cv.tex or resume.tex; this file contains section definitions only.
+
+%% ------------------------------------------------------------ header
+\newcommand{\HeaderSection}{%
+  \header{Yile (Wayne) Wang}{%
+    Dallas, TX\sep +1 (682) 248-6331\sep
+    \href{mailto:ylwwayne@gmail.com}{\ul{ylwwayne@gmail.com}}\sep
+    \link{https://github.com/yilewang}{GitHub}\sep
+    \link{https://yilewang.github.io/}{Website}\sep
+    \link{https://www.linkedin.com/in/yile-wang-02a070131/}{LinkedIn}\sep
+    \link{https://scholar.google.com/citations?user=bgnVj8wAAAAJ}{Google Scholar}}}
+
+%% ------------------------------------------------------------ summary
+\newcommand{\SummarySection}{%
+  \cvsection{Summary}
+  \resumeonly{%
+  Computational neuroscientist who designs and ships AI agent systems.
+  Creator and maintainer of \link{https://github.com/yilewang/llm-for-zotero}{LLM-for-Zotero} (\textbf{3,100+ GitHub stars, 650K+ plugin downloads, 100+ releases}), a TypeScript research agent with an adaptive agent runtime, multi-provider model layer, context budgeting, and verified, undoable actions.
+  Research on brain-aligned deep networks (\venue{Communications Biology}) and on how representational drift shapes neural decoding (first-author ICLR 2027 submission).}
+  \cvonly{%
+  Ph.D. candidate in computational neuroscience at UT Dallas.
+  I study how neural representations drift over time and what that means for decoding, and how human neural data can shape artificial vision models.
+  Co-developed ReAlnet, an EEG-aligned vision model (\venue{Communications Biology}, 2026); first-author work on representational drift under review at ICLR 2027 and accepted at CCN 2026.
+  Creator of \link{https://github.com/yilewang/llm-for-zotero}{LLM-for-Zotero}, an open-source AI research agent with \textbf{3,100+ GitHub stars} and \textbf{650K+ plugin downloads}.}}
+
+%% ------------------------------------------------------------ education
+\newcommand{\EducationSection}{%
+  \cvsection{Education}
+  \leftright{\textbf{The University of Texas at Dallas}}{\textbf{Richardson, TX}}
+  \leftright{\indented{Ph.D., Cognition and Neuroscience (GPA: 3.94/4)}}{Aug 2021 -- Aug 2027 (expected)}
+  \leftright{\indented{M.S., Applied Cognition and Neuroscience, Computational Modeling track (GPA: 3.93/4)}}{Aug 2019 -- May 2021}
+  \entrygap
+  \leftright{\textbf{Southern Medical University}}{\textbf{Guangzhou, China}}
+  \leftright{\indented{B.S., Psychology}}{Aug 2014 -- May 2018}}
+
+%% ------------------------------------------------------------ experience
+\newcommand{\ExperienceSection}{%
+  \cvsection{Research \& Work Experience}
+  \leftright{\textbf{Doctoral Researcher}, The University of Texas at Dallas}{Aug 2021 -- Present}
+  \subentry{Representational drift: biologically constrained neural network modeling (with Kaushik Lakshminarasimhan)}
+  \begin{itemize}
+    \item Designed and trained neural networks to explain representational drift, translating biological constraints into model architecture, learning rules, and training strategies.
+    \item Adapted learning rules, model parameters, and training procedures to capture biological mechanisms while meeting modeling objectives.
+    \item Developed an efficient-coding account of representational drift; first-author paper under review at \textbf{ICLR 2027}.
+    \item Built a biologically plausible \textbf{downstream decoding model} that uses \textbf{online statistical learning} to compensate for representational drift. Validated the model on the longitudinal THINGS-EEG2 dataset; manuscript \textbf{under review}.
+  \end{itemize}
+  \subentry{Brain-aligned vision models, ReAlnet (with Zitong Lu and Julie Golomb, Ohio State University)}
+  \begin{itemize}
+    \item Co-designed a multi-layer image-to-brain encoding framework that jointly trains ImageNet-pretrained CORnet-S for object classification and EEG generation. Combined mean-squared-error (MSE) and contrastive losses for EEG generation, yielding \textbf{10 individualized models} aligned to each subject's EEG.
+    \item ReAlnets outperformed the \textbf{baseline model, CORnet-S}, in EEG representational similarity across all four visual layers (\textbf{up to 40\% relative improvement at peak}). Gains extended to unseen fMRI data and human behavioral benchmarks on Brain-Score.
+    \item Built the \textbf{PyTorch training and validation pipeline}, including Brain-Score behavioral evaluation and representational similarity analysis. Ran control experiments (\textbf{loss ablations, unpaired and scrambled EEG}) isolating the contribution of neural alignment.
+    \item Extended the framework to \textbf{ResNet-18}, achieving significant improvements in EEG representational similarity and demonstrating applicability beyond the original architecture.
+  \end{itemize}
+  \indented{\textbf{Publications:} \venue{Communications Biology} (2026; earlier version at an ICLR 2024 workshop) and \venue{Cognitive Neurodynamics} (2025).}\par
+  \subentry{Computational modeling and biomarker discovery in Alzheimer's disease}
+  \begin{itemize}
+    \item Predicted conversion from mild cognitive impairment (MCI) to Alzheimer's disease \textbf{4 years before clinical diagnosis with 80\% specificity}. Used computational biomarkers from individualized brain-network models and multivariate discriminant analysis.
+    \item Built \textbf{individualized digital brain twins in The Virtual Brain}, using dynamical systems constrained by structural MRI and diffusion imaging. Applied mean-field modeling and criticality analysis to characterize collective brain dynamics in MCI and Alzheimer's disease.
+    \item Used \textbf{Python/pandas} to clean and integrate \textbf{high dimensional, multimodal data from hundreds of patients}, spanning MRI, cognitive assessments, and behavioral measures. Applied \textbf{multi-variant clustering analysis and dimensionality reduction} to develop candidate biomarkers for disease classification and progression prediction.
+  \end{itemize}
+  \entrygap
+  \resumeonly{\Needspace{6\baselineskip}}
+  \leftright{\textbf{HPC Research Assistant (NSF-funded)}, Office of Information Technology, UT Dallas}{Aug 2023 -- May 2024}
+  \begin{itemize}
+    \item Deployed a brain simulation platform on a shared server with a \textbf{PostgreSQL backend} for multi-user simulation and data management.
+    \item Built a \textbf{CUDA-enabled container} and integrated GPU-accelerated fiber-orientation estimation with \textbf{Slurm job scripts} into a validated UK Biobank MRI pipeline. Achieved \textbf{approximately 100\texttimes{} speedup} for fiber-orientation estimation compared with the CPU implementation.
+  \end{itemize}}
+
+%% ------------------------------------------------------------ publications
+\newcommand{\PublicationsSection}{%
+  %% \cvonly{\item ...} entries are left out of the resume's selected list.
+  \cvsection{\resumeonly{Selected Publications}\cvonly{Publications}}
+  143 citations (\link{https://scholar.google.com/citations?user=bgnVj8wAAAAJ}{Google Scholar}); research areas: \textbf{machine learning, representational drift, and whole-brain modeling}.
+  \par\addvspace{4pt}\textbf{Peer-reviewed journal articles}
+  \begin{itemize}
+    \item \me{Wang, Y.}, Lu, Z., \& Lakshminarasimhan, K. (2026). Coordinated drift of image representations in human EEG. \status{under review}
+    \item Lu, Z., \me{Wang, Y.}, \& Golomb, J. D. (2026). Achieving more human brain-like vision via human EEG representational alignment. \venue{Communications Biology}, 9, 463. \link{https://doi.org/10.1038/s42003-026-09685-w}{doi:10.1038/s42003-026-09685-w}
+    \item Lu, Z., \& \me{Wang, Y.} (2025). Teaching CORnet human fMRI representations for enhanced model--brain alignment. \venue{Cognitive Neurodynamics}, 19(1), 61.
+    \cvonly{%
+    \item Li, Z., Huang, G., Li, Z., Li, S., \me{Wang, Y.}, Zhao, J., \ldots\ \& Zou, L. (2020). Chemosensory anhedonia in patients with schizophrenia and individuals with schizotypy: A questionnaire study. \venue{Frontiers in Psychiatry}, 11, 481.
+    \item Zhao, J., Gao, Z.*, Li, Y.*, \me{Wang, Y.*}, Zhang, X., \& Zou, L. (2019). The food neophobia scale (FNS): Exploration and confirmation of factor structure in a healthy Chinese sample. \venue{Food Quality and Preference}, 79, 103791.
+    \item Zhao, J.*, \me{Wang, Y.*}, Ma, Q., Zhao, J., Zhang, X., \& Zou, L. (2019). The Chemosensory Pleasure Scale: A new assessment for measuring hedonic smell and taste capacities. \venue{Chemical Senses}, 44(7), 457--464.
+    \item \me{Wang, Y.}, \& Zou, L. (2018). The neural mechanisms of social pain. \venue{Progress in Biochemistry and Biophysics}, 45(7), 714--722. [in Chinese]}
+  \end{itemize}
+  \cvonly{\par\addvspace{2pt}*Equal contribution.}
+  \par\addvspace{4pt}\textbf{Conference papers and presentations}
+  \begin{itemize}
+    \item \me{Wang, Y.}, \& Lakshminarasimhan, K. (2026). An efficient coding account of representational drift. \venue{International Conference on Learning Representations (ICLR 2027)}. \status{under review}
+    \item Hosseinpourkhoshkbari, R., Huang, W., \me{Wang, Y.}, Helabad, A., Chen, Z., \& Golden, R. (2026). Human-likeness is multi-dimensional: Evaluating LLM-generated virtual patients against simulated patient dialogue. \venue{Conference on Language Modeling (COLM 2026)}. \status{accepted}
+    \item \me{Wang, Y.}, \& Lakshminarasimhan, K. (2026). The geometry of drifting spatial representations. \venue{Cognitive Computational Neuroscience (CCN 2026)}. \status{accepted poster}
+    \cvonly{%
+    \item \me{Wang, Y.}, \& Lakshminarasimhan, K. (2026). When drift helps or hurts: Heterogenous effects of representational drift on decoding. \venue{Summit in BrainHealth, UT Dallas}.}
+    \item Lu, Z., \me{Wang, Y.}, \& Golomb, J. D. (2024). ReAlnet: Achieving more human brain-like vision via human neural representational alignment. \venue{ICLR 2024 Workshop}. \status{accepted}
+  \end{itemize}}
+
+%% ------------------------------------------------------------ projects
+\newcommand{\ProjectsSection}{%
+  \cvsection{Open-Source Software}
+  \leftright{\textbf{LLM-for-Zotero}: Open-source AI research agent (\link{https://github.com/yilewang/llm-for-zotero}{GitHub})}{\textit{TypeScript, 2026 -- present}}
+  \subentry{Creator, lead architect, and maintainer}
+  \begin{itemize}
+    \item \textbf{Product ownership:} Created and shipped an AI research agent with \textbf{3,100+ GitHub stars and 650K+ plugin downloads}. Lead system architecture, implementation, \textbf{testing}, and ongoing maintenance.
+    \item \textbf{Agent architecture:} Designed an \textbf{adaptive agent loop} that coordinates planning, tool execution, and continuation based on observed progress. Built an \textbf{agent harness} for instruction assembly, tool access, and runtime guardrails, including context budgets, input validation, and repeated-failure detection.
+    \item \textbf{RAG and context engineering:} Combined \textbf{retrieval-augmented generation (RAG) and agentic search} for research across large document libraries. Optimized retrieval through library indexing, hybrid keyword and semantic ranking, and evidence caching. Designed automatic \textbf{context compaction} and source-coverage tracking to preserve reusable evidence across long research sessions.
+    \item \textbf{Execution reliability:} Designed \textbf{state machines and action contracts} with explicit \textbf{component ownership}. The Zotero host application controls permissions, execution, and verification of saved results. Implemented \textbf{asynchronous job orchestration for batch processing}, with persisted checkpoints, cancellation, and recovery from interrupted runs. Supported undo for saved library changes.
+    \item \textbf{Model and agent integration:} Integrated cloud and local models, the \textbf{Claude Agent SDK} through a companion bridge, and \textbf{Codex app-server}. Built a \textbf{Model Context Protocol (MCP) server} exposing Zotero tools to external agents. Optimized prompt caching through stable prompt prefixes and managed session reuse for continued conversations.
+    \item \textbf{Testing and delivery:} Built \textbf{workflow test suites and behavioral evaluation suites} covering tool selection, permission handling, evidence quality, and verification of saved data inside Zotero. Designed automated testing, build, and publishing workflows with \textbf{GitHub Actions}, supporting \textbf{100+ releases}.
+  \end{itemize}
+  \cvonly{\entrygap
+  \leftright{\textbf{Dynamical Network Analysis \& Statistical Toolbox} (\link{https://github.com/yilewang/dynamics_net_sys_class/tree/main}{GitHub})}{\textit{Python}}
+  \begin{itemize}
+    \item Teaching toolbox and notebooks for dynamical networks: SIR epidemics, network diffusion, and Erdős--Rényi graphs, linking analytic models to simulation and emergent dynamics.
+  \end{itemize}}}
+
+%% ------------------------------------------------------------ honors
+\newcommand{\HonorsSection}{%
+  \cvsection{Honors \& Awards}
+  \leftright{Marlane Miller Visionary New Scientist Award\cvonly{ (\$25,000)}}{Oct 2023}
+  \leftright{Society for Neuroscience Trainee Professional Development Award\cvonly{ (\$1,000)}}{Nov 2022}
+  \leftright{UT Dallas Master's Research Fellowship\cvonly{ (\$1,500)}}{Jul 2021}}
+
+%% ------------------------------------------------------------ skills
+\newcommand{\SkillsSection}{%
+  \cvsection{Skills}
+  \textbf{Programming \& data:} Python, pandas, TypeScript, R, MATLAB, Bash\par
+  \textbf{AI agents \& retrieval:} Adaptive agent loops, agent harnesses, retrieval-augmented generation (RAG), agentic search, context compaction, prompt caching\par
+  \textbf{Software architecture \& integration:} State machines, asynchronous workflows, action contracts, recovery mechanisms, Model Context Protocol (MCP), Claude Agent SDK, Codex app-server\par
+  \textbf{Machine learning \& statistics:} PyTorch, convolutional neural networks, contrastive learning, dimensionality reduction, discriminant analysis, cross-validation\par
+  \textbf{Computational modeling:} Dynamical network simulation, biologically constrained neural networks, mean-field modeling, criticality analysis, information theory, Markov chain Monte Carlo (MCMC)\par
+  \textbf{Testing \& evaluation:} Test-driven development (TDD), workflow test suites, regression testing\par
+  \textbf{Infrastructure:} SQLite, PostgreSQL, Docker, CUDA, Slurm, high-performance computing, Git, GitHub Actions, AWS, Google Cloud\par
+  \cvonly{\textbf{Neuroscience methods:} EEG/fMRI decoding, representational similarity analysis, representational drift analysis, structural MRI/DTI, individualized brain-network simulation, Brain-Score\par}}

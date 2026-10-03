@@ -1,4 +1,19 @@
 % !TEX program = xelatex
-%% Industry resume: all content lives in cv.tex; this file only selects the variant.
-\PassOptionsToClass{resume}{resume}
-\input{cv}
+%% Industry resume: shared text lives in content.tex.
+\documentclass[resume]{resume}
+\input{content}
+
+\begin{document}
+  %% Move the lines below to change this document's section order.
+  %% Comment out a line with % to hide that section in this document.
+  %% ProjectsSection is Open-Source Software.
+  %% ExperienceSection is Research & Work Experience.
+  \HeaderSection
+  \SummarySection
+  \EducationSection
+  \ProjectsSection
+  \ExperienceSection
+  \SkillsSection
+  \PublicationsSection
+  \HonorsSection
+\end{document}
