@@ -1,0 +1,49 @@
+% !TEX program = xelatex
+% Application: https://www.google.com/about/careers/applications/jobs/results/134313315235963590-student-researcher-phd-wintersummer-2027
+%
+% Google does not require a cover letter. The posting asks for a "Research Focus"
+% that highlights publications and significant contributions, so this letter is
+% written as a research-focus statement with a narrative.
+%
+% To reuse for another application, change only:
+%   1. \Position and \Team below.
+%   2. The paragraph marked %% GOOGLE-SPECIFIC (Nested Learning, AI co-scientist).
+%   3. The availability sentence in the closing paragraph.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Helvetica}{\setmainfont{Helvetica}}{\setmainfont{TeX Gyre Heros}}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\raggedright
+
+\newcommand{\Position}{Student Researcher, PhD, Winter-Summer 2027}
+\newcommand{\Team}{Google Student Researcher Hiring Team}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Yile (Wayne) Wang}\\[4pt]
+  Dallas, TX \enspace | \enspace
+  \href{mailto:ylwwayne@gmail.com}{ylwwayne@gmail.com} \enspace | \enspace
+  \href{https://github.com/yilewang}{GitHub} \enspace | \enspace
+  \href{https://yilewang.github.io/}{Website} \enspace | \enspace
+  \href{https://scholar.google.com/citations?user=bgnVj8wAAAAJ}{Google Scholar}
+\end{center}
+\vspace{2pt}
+\textbf{Application: \Position}
+
+Dear \Team,
+
+I am a Ph.D. candidate in Cognition and Neuroscience at UT Dallas, with an expected graduation in 08/27. My research builds neural networks with biological learning rules to explain representational drift and the stability-plasticity problem in neural circuits, leading toward continual learning. I study which learning rules produce drift, aiming to turn biological learning rules into the next generation of machine learning (first-author paper under review at ICLR 2027).
+My dissertation asks how brain circuits extract invariants from drifting activity and weights, the question at the heart of continual learning.
+
+I also created LLM-for-Zotero, an open-source AI research agent with 3,100+ GitHub stars and 650K+ downloads. I designed its adaptive agent loop, which plans, executes tools, and continues based on observed progress, and its retrieval over each user's own library, making it a personalized agent for academic research. For me, AI for science has two layers: building useful AI tools for scientists, and building brain-like AI systems that advance science itself. Neither should lag behind the other.
+
+%% GOOGLE-SPECIFIC
+I would welcome projects on continual learning, neuroscience-inspired learning, or agents for science at Google Research or DeepMind, starting January to August 2027.
+
+Sincerely,\\[3pt]
+Yile (Wayne) Wang
+\end{document}
